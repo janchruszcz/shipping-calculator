@@ -1,5 +1,9 @@
 require 'spec_helper'
+require 'json'
 require_relative '../../lib/shipping_calculator/services/data_loader'
+require_relative '../../lib/shipping_calculator/models/sailing'
+require_relative '../../lib/shipping_calculator/models/rate'
+require_relative '../../lib/shipping_calculator/models/exchange_rate'
 
 RSpec.describe ShippingCalculator::Services::DataLoader do
   describe '.load' do

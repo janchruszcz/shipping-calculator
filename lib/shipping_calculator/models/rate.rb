@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'bigdecimal'
+
 module ShippingCalculator
   module Models
     class Rate
@@ -7,7 +9,7 @@ module ShippingCalculator
 
       def initialize(attributes)
         @sailing_code = attributes[:sailing_code]
-        @rate = attributes[:rate]
+        @rate = BigDecimal(attributes[:rate])
         @rate_currency = attributes[:rate_currency]
       end
     end

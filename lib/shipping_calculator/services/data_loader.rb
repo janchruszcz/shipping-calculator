@@ -11,18 +11,18 @@ module ShippingCalculator
         }
       end
 
-      private
-
-      def load_sailings(data)
+      def self.load_sailings(data)
         data.map { |item| ShippingCalculator::Models::Sailing.new(item) }
       end
 
-      def load_rates(data)
+      def self.load_rates(data)
         data.map { |item| ShippingCalculator::Models::Rate.new(item) }
       end
 
-      def load_exchange_rates(data)
-        data.map { |item| ShippingCalculator::Models::ExchangeRate.new(item) }
+      def self.load_exchange_rates(data)
+        data.map do |date, rates|
+          ShippingCalculator::Models::ExchangeRate.new({ date:, rates: })
+        end
       end
     end
   end
