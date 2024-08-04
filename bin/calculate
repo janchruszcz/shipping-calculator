@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/application'
+
+def prompt(message)
+  print message
+  gets.chomp
+end
+
+data_file_path = File.join(File.dirname(__FILE__), '..', 'data', 'response.json')
+app = ShippingCalculator::Application.new(data_file_path)
+
+origin_port = prompt("Enter origin port: ")
+destination_port = prompt("Enter destination port: ")
+criteria = prompt("Enter criteria (cheapest-direct/cheapest/fastest): ")
+
+result = app.run(origin_port, destination_port, criteria)
+puts JSON.pretty_generate(result)
