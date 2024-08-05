@@ -6,16 +6,15 @@ module ShippingCalculator
   module Services
     # Calculates shipping costs based on origin, destination, and criteria (cheapest, fastest, cheapest-direct)
     class ShippingCalculatorService
-      def initialize(data)
-        @data = data
+      def initialize(repositories)
+        @repositories = repositories
       end
 
       def calculate(origin, destination, criteria)
-        data = @data
         calculator = Factories::CalculatorFactory.create(criteria,
-                                                         data[:sailings],
-                                                         data[:rates],
-                                                         data[:exchange_rates])
+                                                         @repositories[:sailing_repository],
+                                                         @repositories[:rate_repository],
+                                                         @repositories[:exchange_rate_repository])
         calculator.calculate(origin, destination)
       end
     end
