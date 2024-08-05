@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :exchange_rate, class: 'ShippingCalculator::Models::ExchangeRate' do
-    date { '2024-03-01' }
-    rates { { 'USD' => '1.19', 'GBP' => '0.85' } }
+    date { '2023-01-01' }
+    rates { { 'USD' => '1.19', 'GBP' => '0.75' } }
 
     initialize_with { new(attributes) }
   end

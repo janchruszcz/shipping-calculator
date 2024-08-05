@@ -10,7 +10,7 @@ RSpec.describe ShippingCalculator::Models::Rate do
       expect(rate).to be_a(described_class)
     end
 
-    it 'sets the attributes correctly' do
+    it 'sets attributes correctly' do
       expect(rate.sailing_code).to eq('ABCDE')
       expect(rate.rate).to eq(BigDecimal('100'))
       expect(rate.rate_currency).to eq('EUR')
