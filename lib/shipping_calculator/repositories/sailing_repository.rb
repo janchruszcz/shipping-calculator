@@ -14,26 +14,25 @@ module ShippingCalculator
         return direct_routes unless include_indirect
 
         routes = direct_routes.dup
-        current_routes = @sailings.select { |s| s.origin_port == origin }.map { |s| [s] }
+        current_routes = find_sailings_from(origin).map { |s| [s] }
 
         max_stops.times do
           next_routes = []
           current_routes.each do |route|
             last_sailing = route.last
-            if last_sailing.destination_port == destination
-              routes << route
-            else
-              find_connecting_sailings(last_sailing).each do |connecting_sailing|
-                new_route = route + [connecting_sailing]
-                next_routes << new_route
-                routes << new_route if connecting_sailing.destination_port == destination
-              end
+            connecting_sailings = find_connecting_sailings(last_sailing)
+
+            connecting_sailings.each do |connecting_sailing|
+              new_route = route + [connecting_sailing]
+              next_routes << new_route
+              routes << new_route if connecting_sailing.destination_port == destination
             end
           end
           current_routes = next_routes
+          break if current_routes.empty?
         end
 
-        routes
+        routes.uniq
       end
 
       private

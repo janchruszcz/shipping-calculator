@@ -6,7 +6,7 @@ FactoryBot.define do
     destination_port { 'NLRTM' }
     departure_date { '2024-01-01' }
     arrival_date { '2024-01-02' }
-    sailing_code { 'CNSHA-NLRTM-20240101' }
+    sailing_code { 'ABCDE' }
 
     initialize_with { new(attributes) }
   end

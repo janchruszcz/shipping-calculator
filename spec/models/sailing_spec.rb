@@ -15,7 +15,7 @@ RSpec.describe ShippingCalculator::Models::Sailing do
       expect(sailing.destination_port).to eq('NLRTM')
       expect(sailing.departure_date).to eq(Date.new(2024, 1, 1))
       expect(sailing.arrival_date).to eq(Date.new(2024, 1, 2))
-      expect(sailing.sailing_code).to eq('CNSHA-NLRTM-20240101')
+      expect(sailing.sailing_code).to eq('ABCDE')
     end
   end
 end
