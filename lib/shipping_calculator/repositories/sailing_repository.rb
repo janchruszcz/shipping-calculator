@@ -5,7 +5,7 @@ module ShippingCalculator
         @sailings = sailings
       end
 
-      def find_direct_sailings(origin, destination)
+      def find_direct_routes(origin, destination)
         @sailings.select { |s| s.origin_port == origin && s.destination_port == destination }
       end
 

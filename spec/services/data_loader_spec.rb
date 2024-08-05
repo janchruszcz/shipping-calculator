@@ -31,7 +31,7 @@ RSpec.describe ShippingCalculator::Services::DataLoader do
 
     it 'creates a SailingRepository with correct data' do
       expect(result[:sailing_repository]).to be_a(ShippingCalculator::Repositories::SailingRepository)
-      sailings = result[:sailing_repository].find_direct_sailings('CNSHA', 'NLRTM')
+      sailings = result[:sailing_repository].find_direct_routes('CNSHA', 'NLRTM')
       expect(sailings.length).to eq(1)
       expect(sailings.first.sailing_code).to eq('ABCD')
     end

@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "json"
+gem 'json'
 
 group :development, :test do
-  gem "rspec"
-  gem "rubocop"
+  gem 'factory_bot', '~> 6.4'
+  gem 'rspec'
+  gem 'rubocop'
 end
