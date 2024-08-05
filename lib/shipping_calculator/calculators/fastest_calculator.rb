@@ -7,6 +7,7 @@ module ShippingCalculator
     class FastestCalculator < BaseCalculator
       def calculate(origin, destination)
         routes = find_all_routes(origin, destination)
+        return nil if routes.empty?
 
         fastest_route = routes.min_by { |route| calculate_total_duration(route) }
         fastest_route.map { |sailing| format_result(sailing) }

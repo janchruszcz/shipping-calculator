@@ -7,6 +7,7 @@ module ShippingCalculator
     class CheapestCalculator < BaseCalculator
       def calculate(origin, destination)
         routes = find_all_routes(origin, destination)
+        return nil if routes.empty?
 
         cheapest_route = routes.min_by { |route| calculate_total_cost(route) }
         format_route(cheapest_route)
