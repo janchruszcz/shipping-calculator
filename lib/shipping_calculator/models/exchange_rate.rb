@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 require 'bigdecimal'
 
@@ -8,6 +10,7 @@ module ShippingCalculator
 
       def initialize(attributes)
         @date = Date.parse(attributes[:date].to_s)
+        @rates_string = attributes[:rates]
         @rates = attributes[:rates].transform_values { |v| BigDecimal(v.to_s) }
       end
 
@@ -23,7 +26,7 @@ module ShippingCalculator
       def to_h
         {
           date: @date.to_s,
-          rates: @rates.transform_values(&:to_s)
+          rates: @rates_string
         }
       end
     end

@@ -43,7 +43,7 @@ module ShippingCalculator
           departure_date: sailing.departure_date,
           arrival_date: sailing.arrival_date,
           sailing_code: sailing.sailing_code,
-          rate: rate.rate.to_s,
+          rate: rate.rate_as_string,
           rate_currency: rate.rate_currency
         }
       end
